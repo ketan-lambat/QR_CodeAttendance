@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
 
         protected String doInBackground(String... arg0){
             try {
-                URL url = new URL("https://script.google.com/macros/s/AKfycbxwX1C4Hk4rk58Ds5w37GfjFfoHhhrfuW5W6XDtg7FTkh-i_ey1/exec");
+                //URL url = new URL("https://script.google.com/macros/s/AKfycbxwX1C4Hk4rk58Ds5w37GfjFfoHhhrfuW5W6XDtg7FTkh-i_ey1/exec");
+                String script_url = "https://script.google.com/macros/s/AKfycbxwX1C4Hk4rk58Ds5w37GfjFfoHhhrfuW5W6XDtg7FTkh-i_ey1/exec";
+                URL url = new URL(script_url);
 
                 JSONObject postDataParams = new JSONObject();
                 postDataParams.put("sdata", scannedData);
