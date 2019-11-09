@@ -2,6 +2,7 @@ package ketan.qr_codeattendance;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,8 +11,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -59,9 +63,12 @@ public class MainActivity extends AppCompatActivity {
             scannedData = result.getContents();
             if (scannedData!=null){
                 //handling the scanned data
+                EditText et = (EditText)findViewById(R.id.et_value);
+                et.setText(scannedData, TextView.BufferType.EDITABLE);
+                
                 new SendRequest().execute();
             }else{
-
+                Toast.makeText(this, "The Data is empty", Toast.LENGTH_LONG).show();
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

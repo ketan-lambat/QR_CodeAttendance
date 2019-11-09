@@ -27,4 +27,8 @@ function insert(e, sheet) {
   var ctime = d.toLocaleString();
 
   sheet.appendRow([scannedData, id, name, ctime]);
+  
+  return ContentService
+  .createTextOutput(scannedData)
+  .setMimeType(ContentService.MimeType.JAVASCRIPT);  
 }
